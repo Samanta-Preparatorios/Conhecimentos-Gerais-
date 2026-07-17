@@ -1,1 +1,882 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Mundo Contemporâneo — Material de Estudo | Professora Samanta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F4F1EA;
+    --paper:#FFFFFF;
+    --ink:#1D1B18;
+    --ink-soft:#5A5347;
+    --wine:#7A2E2E;
+    --wine-deep:#5E2020;
+    --gold:#C79A3B;
+    --steel:#3B5166;
+    --olive:#5C6B3C;
+    --sand:#B9884A;
+    --line:#E3DDCE;
+    --easy:#5C6B3C;
+    --medium:#C79A3B;
+    --hard:#7A2E2E;
+    --radius:18px;
+    --shadow: 0 10px 30px -14px rgba(29,27,24,0.25);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse at top left, rgba(122,46,46,0.06), transparent 55%),
+      radial-gradient(ellipse at bottom right, rgba(59,81,102,0.07), transparent 55%),
+      var(--cream);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:980px;margin:0 auto;padding:0 24px;}
 
+  /* ===== HEADER ===== */
+  header.site{
+    background:var(--ink);
+    border-bottom:6px solid var(--wine);
+    position:relative;
+    overflow:hidden;
+  }
+  header.site::before{
+    content:"";
+    position:absolute; inset:0;
+    background: repeating-linear-gradient(115deg, rgba(199,154,59,0.05) 0px, rgba(199,154,59,0.05) 2px, transparent 2px, transparent 40px);
+    pointer-events:none;
+  }
+  .header-inner{
+    display:flex; align-items:center; justify-content:space-between; gap:24px;
+    padding:18px 24px;
+    max-width:980px; margin:0 auto;
+    position:relative;
+  }
+  .header-inner img{height:58px; width:auto; display:block; border-radius:8px;}
+  .header-tag{
+    color:#EFE7D6; font-family:'IBM Plex Mono',monospace; font-size:12.5px;
+    letter-spacing:0.14em; text-transform:uppercase; text-align:right; line-height:1.7;
+  }
+  .header-tag strong{color:var(--gold); display:block; font-size:13.5px;}
+
+  /* ===== HERO ===== */
+  .hero{
+    padding:64px 24px 46px;
+    position:relative;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:0.16em;
+    text-transform:uppercase; color:var(--wine-deep);
+    background:rgba(122,46,46,0.08); border:1px solid rgba(122,46,46,0.25);
+    padding:6px 14px; border-radius:100px; margin-bottom:22px;
+  }
+  .eyebrow::before{content:"●"; color:var(--gold); font-size:9px;}
+  h1.title{
+    font-family:'Fraunces',serif; font-weight:700; font-style:normal;
+    font-size:clamp(2.2rem, 5vw, 3.6rem);
+    line-height:1.04; margin:0 0 20px; letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+  h1.title em{
+    font-style:italic; font-weight:500; color:var(--wine-deep);
+  }
+  .hero-sub{
+    max-width:640px; font-size:1.08rem; color:var(--ink-soft); margin-bottom:8px;
+  }
+  .hero-meta{
+    display:flex; gap:28px; flex-wrap:wrap; margin-top:30px;
+    font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--ink-soft);
+  }
+  .hero-meta div{border-left:2px solid var(--wine); padding-left:10px;}
+  .hero-meta strong{display:block; color:var(--ink); font-size:15px; font-family:'Inter'; font-weight:700;}
+
+  .web-divider{width:100%; height:64px; display:block; margin:8px 0 0;}
+
+  section{padding:14px 24px 10px;}
+  .section-head{
+    display:flex; align-items:baseline; gap:16px; margin:52px 0 28px;
+  }
+  .section-num{
+    font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--wine-deep);
+    background:rgba(122,46,46,0.1); padding:4px 10px; border-radius:6px; font-weight:600;
+  }
+  h2.section-title{
+    font-family:'Fraunces',serif; font-weight:600; font-size:1.85rem; margin:0; color:var(--ink);
+  }
+  p.section-desc{color:var(--ink-soft); max-width:660px; margin:-14px 0 30px;}
+
+  /* ===== REVIEW CARDS ===== */
+  .review-grid{display:flex; flex-direction:column; gap:18px;}
+  .rcard{
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    padding:26px 28px; box-shadow:var(--shadow); position:relative; overflow:hidden;
+  }
+  .rcard::before{
+    content:""; position:absolute; left:0; top:0; bottom:0; width:6px;
+  }
+  .rcard.c1::before{background:var(--wine);}
+  .rcard.c2::before{background:var(--steel);}
+  .rcard.c3::before{background:var(--olive);}
+  .rcard.c4::before{background:var(--sand);}
+  .rcard.c5::before{background:var(--gold);}
+  .rcard h3{
+    font-family:'Fraunces',serif; font-size:1.28rem; margin:0 0 6px; font-weight:600;
+    display:flex; align-items:center; gap:10px;
+  }
+  .rcard .rtag{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase;
+    letter-spacing:0.08em; color:var(--ink-soft); margin-bottom:14px; display:block;
+  }
+  .rcard ul{margin:0; padding-left:20px;}
+  .rcard li{margin-bottom:7px;}
+  .rcard li:last-child{margin-bottom:0;}
+  .rcard b{color:var(--ink);}
+  .mini-table{width:100%; border-collapse:collapse; margin-top:14px; font-size:0.92rem;}
+  .mini-table th, .mini-table td{text-align:left; padding:7px 10px; border-bottom:1px solid var(--line);}
+  .mini-table th{font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-soft);}
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;}
+  .chip{
+    background:rgba(122,46,46,0.07); border:1px solid rgba(122,46,46,0.22);
+    color:var(--wine-deep); font-size:12.5px; padding:5px 12px; border-radius:100px;
+    font-family:'IBM Plex Mono',monospace;
+  }
+  .chip.steel{background:rgba(59,81,102,0.08); border-color:rgba(59,81,102,0.26); color:var(--steel);}
+  .chip.olive{background:rgba(92,107,60,0.08); border-color:rgba(92,107,60,0.26); color:var(--olive);}
+  .chip.gold{background:rgba(199,154,59,0.1); border-color:rgba(199,154,59,0.3); color:#8C6A22;}
+
+  /* ===== QUIZ ===== */
+  .quiz-intro{
+    background:linear-gradient(135deg, rgba(122,46,46,0.08), rgba(199,154,59,0.08));
+    border:1px solid rgba(122,46,46,0.25); border-radius:var(--radius);
+    padding:22px 26px; margin-bottom:34px; font-size:0.98rem;
+  }
+  .topic-block{margin-bottom:44px;}
+  .topic-title{
+    font-family:'Fraunces',serif; font-size:1.4rem; font-weight:600; margin:0 0 4px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .topic-title .dot{width:11px; height:11px; border-radius:50%; display:inline-block;}
+  .topic-progress{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--ink-soft); margin-bottom:18px;}
+
+  .qcard{
+    background:var(--paper); border:1px solid var(--line); border-radius:16px;
+    padding:22px 24px; margin-bottom:16px; box-shadow:var(--shadow);
+  }
+  .qcard .qhead{display:flex; align-items:center; gap:10px; margin-bottom:12px; flex-wrap:wrap;}
+  .diff-badge{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; text-transform:uppercase;
+    letter-spacing:0.08em; padding:4px 10px; border-radius:100px; font-weight:600; color:#fff;
+  }
+  .diff-badge.facil{background:var(--easy);}
+  .diff-badge.medio{background:var(--medium); color:#3a2a00;}
+  .diff-badge.dificil{background:var(--hard);}
+  .qnum{font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--ink-soft);}
+  .qtext{font-size:1.02rem; font-weight:600; margin:0 0 14px; color:var(--ink);}
+  .options{display:flex; flex-direction:column; gap:9px;}
+  .opt{
+    display:flex; align-items:flex-start; gap:11px; padding:11px 14px;
+    border:1.5px solid var(--line); border-radius:10px; cursor:pointer;
+    transition:border-color .15s, background .15s;
+  }
+  .opt:hover{border-color:var(--wine); background:rgba(122,46,46,0.04);}
+  .opt input{margin-top:3px; accent-color:var(--wine-deep);}
+  .opt.selected{border-color:var(--wine-deep); background:rgba(122,46,46,0.08);}
+  .opt span.letter{font-family:'IBM Plex Mono',monospace; font-weight:700; color:var(--wine-deep); margin-right:2px;}
+
+  .submit-bar{
+    position:sticky; bottom:0; z-index:20;
+    background:linear-gradient(180deg, rgba(244,241,234,0) 0%, var(--cream) 32%);
+    padding:24px 24px 22px; text-align:center;
+  }
+  #submitBtn{
+    background:var(--ink); color:#fff; border:none; font-family:'Inter'; font-weight:700;
+    font-size:1rem; padding:16px 44px; border-radius:100px; cursor:pointer;
+    box-shadow:0 12px 26px -8px rgba(29,27,24,0.45); transition:transform .15s, background .15s;
+  }
+  #submitBtn:hover{transform:translateY(-2px); background:var(--wine-deep);}
+  #submitBtn:disabled{opacity:0.45; cursor:not-allowed; transform:none;}
+  .progress-note{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft); margin-top:10px;}
+
+  /* ===== RESULTS ===== */
+  #results{display:none;}
+  .results-hero{
+    background:var(--ink); color:#fff; border-radius:22px; padding:40px 34px;
+    display:flex; gap:40px; align-items:center; flex-wrap:wrap; margin-bottom:36px;
+    position:relative; overflow:hidden;
+  }
+  .results-hero::before{
+    content:""; position:absolute; right:-60px; top:-60px; width:220px; height:220px;
+    background:radial-gradient(circle, rgba(199,154,59,0.18), transparent 70%);
+  }
+  .pie-wrap{flex:0 0 auto; position:relative;}
+  .pie-center{
+    position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    font-family:'Fraunces',serif;
+  }
+  .pie-center .pct{font-size:2.1rem; font-weight:700; color:#fff;}
+  .pie-center .lbl{font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; color:#D8CFC0; text-transform:uppercase;}
+  .results-summary{flex:1; min-width:240px;}
+  .results-summary h3{font-family:'Fraunces',serif; font-size:1.5rem; margin:0 0 10px; font-weight:600;}
+  .results-summary p{color:#D8CFC0; margin:0 0 16px; font-size:0.96rem;}
+  .legend{display:flex; flex-wrap:wrap; gap:14px; font-family:'IBM Plex Mono',monospace; font-size:12px;}
+  .legend span{display:flex; align-items:center; gap:6px; color:#EDE6D8;}
+  .legend i{width:11px; height:11px; border-radius:3px; display:inline-block;}
+
+  .topic-results{display:flex; flex-direction:column; gap:10px; margin-bottom:38px;}
+  .tr-row{
+    display:grid; grid-template-columns:210px 1fr 60px; align-items:center; gap:16px;
+    background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:13px 18px;
+  }
+  .tr-row .tname{font-weight:600; font-size:0.92rem;}
+  .tr-bar-bg{background:#EBE4D3; border-radius:100px; height:10px; overflow:hidden;}
+  .tr-bar-fill{height:100%; border-radius:100px;}
+  .tr-row .tpct{font-family:'IBM Plex Mono',monospace; font-size:13px; text-align:right; font-weight:600;}
+
+  .diag-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:20px;}
+  @media (max-width:700px){.diag-grid{grid-template-columns:1fr;}}
+  .diag-card{border-radius:16px; padding:22px 24px; border:1.5px solid;}
+  .diag-card.strong{background:rgba(92,107,60,0.06); border-color:rgba(92,107,60,0.35);}
+  .diag-card.weak{background:rgba(122,46,46,0.06); border-color:rgba(122,46,46,0.35);}
+  .diag-card h4{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; text-transform:uppercase; letter-spacing:0.08em;
+    margin:0 0 10px;
+  }
+  .diag-card.strong h4{color:var(--olive);}
+  .diag-card.weak h4{color:var(--wine-deep);}
+  .diag-card p{margin:0; font-size:0.94rem; color:var(--ink-soft);}
+  .diag-card strong{color:var(--ink);}
+
+  .study-plan{
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    padding:28px 30px; box-shadow:var(--shadow); margin-bottom:20px;
+  }
+  .study-plan h3{font-family:'Fraunces',serif; font-size:1.4rem; margin:0 0 6px;}
+  .study-plan > p{color:var(--ink-soft); margin:0 0 20px; font-size:0.94rem;}
+  .plan-steps{display:flex; flex-direction:column; gap:14px;}
+  .plan-step{display:flex; gap:14px; align-items:flex-start;}
+  .plan-step .pn{
+    flex:0 0 auto; width:28px; height:28px; border-radius:50%; background:var(--wine);
+    color:#fff; display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12.5px;
+  }
+  .plan-step div.ptext b{display:block; margin-bottom:2px;}
+  .plan-step div.ptext{font-size:0.93rem; color:var(--ink-soft);}
+
+  /* ===== GABARITO ===== */
+  #gabarito{display:none;}
+  .gcard{
+    background:var(--paper); border:1px solid var(--line); border-radius:14px;
+    padding:20px 22px; margin-bottom:14px;
+  }
+  .gcard.correct{border-left:5px solid var(--olive);}
+  .gcard.incorrect{border-left:5px solid var(--wine);}
+  .gcard .ghead{display:flex; align-items:center; gap:10px; margin-bottom:8px; flex-wrap:wrap;}
+  .result-icon{font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px; padding:3px 9px; border-radius:100px;}
+  .result-icon.ok{background:rgba(92,107,60,0.15); color:var(--olive);}
+  .result-icon.no{background:rgba(122,46,46,0.15); color:var(--wine-deep);}
+  .gcard .gq{font-weight:600; margin:0 0 10px;}
+  .gcard .ganswer{font-size:0.9rem; margin-bottom:4px;}
+  .gcard .ganswer b{color:var(--olive);}
+  .gcard .gyour b{color:var(--wine-deep);}
+  .gcard .gexp{
+    background:var(--cream); border-radius:10px; padding:12px 14px; font-size:0.9rem;
+    margin-top:10px; color:var(--ink-soft); border:1px solid var(--line);
+  }
+
+  footer{
+    text-align:center; padding:50px 24px 60px; color:var(--ink-soft); font-size:0.85rem;
+    font-family:'IBM Plex Mono',monospace;
+  }
+  footer strong{color:var(--ink);}
+
+  @media (max-width:640px){
+    .header-inner{flex-direction:column; align-items:center; gap:12px; text-align:center;}
+    .header-tag{text-align:center;}
+    .tr-row{grid-template-columns:1fr; text-align:left;}
+    .tr-row .tpct{text-align:left;}
+    .results-hero{flex-direction:column; text-align:center;}
+    .legend{justify-content:center;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="header-inner">
+    <img src="Logo preparatorio1.jpeg" alt="Logo Curso Preparatório Professora Samanta">
+    <div class="header-tag">Material de Estudo<strong>Ciências Humanas</strong></div>
+  </div>
+</header>
+
+<section class="hero wrap">
+  <span class="eyebrow">O Mundo Contemporâneo · Conteúdo Programático</span>
+  <h1 class="title">Guerras, blocos<br>e <em>rupturas</em> do século XX</h1>
+  <p class="hero-sub">Revisão completa e questionário diagnóstico sobre os cinco pilares do Mundo Contemporâneo cobrados na prova: totalitarismos e Segunda Guerra Mundial, Guerra Fria, descolonização da África e Ásia, América Latina no pós-guerra e globalização/neoliberalismo.</p>
+  <div class="hero-meta">
+    <div><strong>5</strong>temas</div>
+    <div><strong>15</strong>questões</div>
+    <div><strong>3</strong>níveis de dificuldade</div>
+    <div><strong>1</strong>diagnóstico final</div>
+  </div>
+  <svg class="web-divider" viewBox="0 0 980 64" preserveAspectRatio="none">
+    <g stroke="#7A2E2E" stroke-width="1.2" opacity="0.3" fill="none">
+      <line x1="40" y1="32" x2="160" y2="14"/><line x1="40" y1="32" x2="160" y2="50"/>
+      <line x1="160" y1="14" x2="300" y2="30"/><line x1="160" y1="50" x2="300" y2="30"/>
+      <line x1="300" y1="30" x2="440" y2="12"/><line x1="300" y1="30" x2="440" y2="48"/>
+      <line x1="440" y1="12" x2="580" y2="28"/><line x1="440" y1="48" x2="580" y2="28"/>
+      <line x1="580" y1="28" x2="720" y2="10"/><line x1="580" y1="28" x2="720" y2="46"/>
+      <line x1="720" y1="10" x2="860" y2="26"/><line x1="720" y1="46" x2="860" y2="26"/>
+      <line x1="860" y1="26" x2="940" y2="34"/>
+    </g>
+    <g fill="#C79A3B">
+      <circle cx="40" cy="32" r="4"/><circle cx="160" cy="14" r="3.5"/><circle cx="160" cy="50" r="3.5"/>
+      <circle cx="300" cy="30" r="4.2"/><circle cx="440" cy="12" r="3.5"/><circle cx="440" cy="48" r="3.5"/>
+      <circle cx="580" cy="28" r="4.2"/><circle cx="720" cy="10" r="3.5"/><circle cx="720" cy="46" r="3.5"/>
+      <circle cx="860" cy="26" r="4"/><circle cx="940" cy="34" r="3"/>
+    </g>
+  </svg>
+</section>
+
+<!-- ============ REVISÃO ============ -->
+<section class="wrap" id="revisao">
+  <div class="section-head">
+    <span class="section-num">PARTE 1</span>
+    <h2 class="section-title">Revisão dos conteúdos</h2>
+  </div>
+  <p class="section-desc">As características essenciais de cada tema — leia antes de responder ao questionário.</p>
+
+  <div class="review-grid">
+
+    <div class="rcard c1">
+      <span class="rtag">1.1</span>
+      <h3>⚔️ Totalitarismos e Segunda Guerra Mundial</h3>
+      <ul>
+        <li><b>Fascismo</b> (Itália, Mussolini) e <b>Nazismo</b> (Alemanha, Hitler): regimes de partido único, culto ao líder, nacionalismo exacerbado, militarismo e supressão de liberdades individuais, surgidos no contexto de crise econômica e ressentimento pós-Primeira Guerra.</li>
+        <li><b>Holocausto</b>: extermínio sistemático de cerca de 6 milhões de judeus pelo regime nazista, além de outras vítimas do totalitarismo — ciganos (Roma), homossexuais, deficientes, comunistas, testemunhas de Jeová e prisioneiros políticos.</li>
+        <li><b>Causas da guerra</b>: revanchismo alemão contra o Tratado de Versalhes, expansionismo nazifascista (política de apaziguamento), crise de 1929 e ascensão de regimes autoritários.</li>
+        <li><b>Alianças</b>: Eixo (Alemanha, Itália, Japão) x Aliados (Reino Unido, URSS, EUA, França, entre outros).</li>
+        <li><b>Etapas</b>: invasão da Polônia (1939), Blitzkrieg, entrada da URSS e dos EUA (após Pearl Harbor, 1941), Dia D (1944), bombas atômicas em Hiroshima e Nagasaki (1945).</li>
+        <li><b>Impactos globais</b>: cerca de 60 milhões de mortos, reconfiguração de fronteiras, bipolarização do poder mundial (EUA x URSS).</li>
+        <li><b>Criação da ONU</b> (1945): organismo internacional para manter a paz e promover a cooperação entre nações, sucessora da fracassada Liga das Nações.</li>
+        <li><b>Direitos Humanos</b>: em resposta às atrocidades da guerra, a Declaração Universal dos Direitos Humanos (1948) estabelece direitos e liberdades fundamentais válidos para todos os seres humanos.</li>
+      </ul>
+    </div>
+
+    <div class="rcard c2">
+      <span class="rtag">1.2</span>
+      <h3>❄️ A Guerra Fria</h3>
+      <ul>
+        <li>Conflito <b>ideológico, político e militar</b> (sem confronto direto) entre EUA (capitalismo) e URSS (socialismo), de 1947 a 1991, marcado pela divisão do mundo em blocos de influência.</li>
+        <li><b>Corrida armamentista</b>: acúmulo de armas nucleares por ambas as potências, gerando o equilíbrio do terror (destruição mútua assegurada).</li>
+        <li><b>Corrida espacial</b>: disputa tecnológica simbolizada pelo lançamento do Sputnik (URSS, 1957) e pela chegada do homem à Lua (EUA, 1969).</li>
+        <li><b>Revolução Chinesa</b> (1949): vitória de Mao Tsé-tung e do Partido Comunista, instaurando a República Popular da China.</li>
+        <li><b>Tensões sino-soviéticas</b>: divergências ideológicas e de liderança do bloco socialista entre China e URSS a partir da década de 1960, rompendo a suposta unidade comunista.</li>
+        <li><b>Revolução Cubana</b> (1959): liderada por Fidel Castro e Che Guevara, derrubou a ditadura de Batista e instaurou um regime socialista a poucos quilômetros dos EUA, culminando na Crise dos Mísseis (1962).</li>
+        <li><b>Repercussões</b>: aproximação de Cuba com a URSS, embargo econômico estadunidense, e inspiração para movimentos revolucionários em toda a América Latina.</li>
+      </ul>
+    </div>
+
+    <div class="rcard c3">
+      <span class="rtag">1.3</span>
+      <h3>🌍 Descolonização da África e Ásia</h3>
+      <ul>
+        <li><b>Crise do colonialismo</b>: enfraquecimento das potências europeias após a Segunda Guerra Mundial e pressão internacional (ONU) impulsionam processos de independência em massa a partir dos anos 1950-60.</li>
+        <li><b>Nacionalismos africanos e asiáticos</b>: movimentos de libertação nacional (pacíficos ou armados) lideram a conquista da independência em países como Índia (1947), Gana (1957), Argélia (1962) e diversos países africanos ao longo da chamada "Ano da África" (1960).</li>
+        <li>Muitos países recém-independentes enfrentaram <b>desafios pós-coloniais</b>: fronteiras artificiais herdadas do colonialismo, instabilidade política, dependência econômica e conflitos étnicos.</li>
+        <li><b>Oriente Médio</b>: região estratégica (petróleo, rotas comerciais) marcada por intensas disputas territoriais e religiosas após o fim dos mandatos coloniais.</li>
+        <li><b>Questão da Palestina</b>: criação do Estado de Israel (1947-48) gera sucessivos conflitos árabe-israelenses e o deslocamento da população palestina, uma disputa territorial e política que persiste até os dias atuais.</li>
+      </ul>
+    </div>
+
+    <div class="rcard c4">
+      <span class="rtag">1.4</span>
+      <h3>🌎 A América Latina no pós-Segunda Guerra Mundial</h3>
+      <ul>
+        <li><b>Transformações políticas e sociais</b>: industrialização por substituição de importações, urbanização acelerada e populismo (Vargas, Perón) marcam o período inicial do pós-guerra.</li>
+        <li><b>Ditaduras civis e militares</b>: no contexto da Guerra Fria, diversos países latino-americanos (Brasil 1964, Chile 1973, Argentina 1976, entre outros) sofrem golpes de Estado apoiados/alinhados aos EUA, sob a justificativa de conter o "avanço comunista" (Doutrina de Segurança Nacional).</li>
+        <li>Esses regimes caracterizaram-se por <b>repressão política</b>, censura, perseguição a opositores, tortura e desaparecimentos forçados.</li>
+        <li><b>Lutas por justiça social</b>: movimentos de resistência (guerrilhas urbanas e rurais, sindicatos, igrejas progressistas, organizações de direitos humanos) se opõem às ditaduras e reivindicam redemocratização.</li>
+        <li>A partir dos anos 1980, ocorre um processo gradual de <b>redemocratização</b> na maioria dos países da região.</li>
+      </ul>
+    </div>
+
+    <div class="rcard c5">
+      <span class="rtag">1.5</span>
+      <h3>🌐 Globalização e neoliberalismo</h3>
+      <ul>
+        <li><b>Transformações a partir de 1970</b>: revolução tecnológica (informática, telecomunicações), reestruturação produtiva (toyotismo) e intensificação dos fluxos financeiros, comerciais e culturais em escala mundial.</li>
+        <li><b>Crise do socialismo real</b>: estagnação econômica, reformas de Gorbachov (glasnost e perestroika) e crescente pressão popular levam à queda do Muro de Berlim (1989) e ao fim da URSS (1991), encerrando a Guerra Fria.</li>
+        <li><b>Neoliberalismo</b>: modelo econômico que defende a redução da intervenção do Estado, privatizações, abertura comercial e desregulamentação — implementado com força na América Latina nos anos 1990 (ex.: Consenso de Washington).</li>
+        <li><b>Impactos na América Latina</b>: privatizações de estatais, aumento do desemprego e da informalidade, crescimento das desigualdades sociais, ao lado de estabilização inflacionária em alguns países.</li>
+        <li><b>Ascensão da China</b>: combinação de abertura econômica controlada (reformas de Deng Xiaoping) com regime político de partido único transforma o país em uma das maiores potências econômicas do mundo.</li>
+        <li>O mundo globalizado é marcado por <b>desigualdades</b> persistentes, afirmação de <b>identidades</b> culturais/locais como resposta à homogeneização global, e novos <b>conflitos</b> (étnicos, religiosos, migratórios).</li>
+      </ul>
+      <div class="chips">
+        <span class="chip gold">1989 — Queda do Muro de Berlim</span>
+        <span class="chip">1991 — Fim da URSS</span>
+        <span class="chip steel">Consenso de Washington</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ QUESTIONÁRIO ============ -->
+<section class="wrap" id="quiz">
+  <div class="section-head">
+    <span class="section-num">PARTE 2</span>
+    <h2 class="section-title">Questionário diagnóstico</h2>
+  </div>
+  <div class="quiz-intro">
+    📋 São <b>15 questões</b> — 3 para cada tema, sendo uma <b>fácil</b>, uma <b>média</b> e uma <b>difícil</b>. Responda a todas e clique em <b>Corrigir questionário</b> para ver seu desempenho, o gabarito comentado e uma sugestão de estudo personalizada.
+  </div>
+
+  <form id="quizForm"></form>
+
+  <div class="submit-bar">
+    <button id="submitBtn" disabled>Corrigir questionário</button>
+    <div class="progress-note" id="progressNote">0 de 15 respondidas</div>
+  </div>
+</section>
+
+<!-- ============ RESULTADOS ============ -->
+<section class="wrap" id="results">
+  <div class="section-head">
+    <span class="section-num">PARTE 3</span>
+    <h2 class="section-title">Seu desempenho</h2>
+  </div>
+
+  <div class="results-hero">
+    <div class="pie-wrap" id="pieWrap"></div>
+    <div class="results-summary">
+      <h3 id="resultsHeadline">Resultado</h3>
+      <p id="resultsSub"></p>
+      <div class="legend">
+        <span><i style="background:var(--olive)"></i>Acertos</span>
+        <span><i style="background:var(--wine)"></i>Erros</span>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Fraunces',serif; font-size:1.25rem; margin:0 0 16px;">Desempenho por assunto</h3>
+  <div class="topic-results" id="topicResults"></div>
+
+  <div class="diag-grid">
+    <div class="diag-card strong">
+      <h4>✓ Maior facilidade</h4>
+      <p id="strongTopic"></p>
+    </div>
+    <div class="diag-card weak">
+      <h4>⚠ Maior dificuldade</h4>
+      <p id="weakTopic"></p>
+    </div>
+  </div>
+
+  <div class="study-plan">
+    <h3>📚 Estudo orientado sugerido</h3>
+    <p>Um roteiro construído a partir dos temas em que você mais errou.</p>
+    <div class="plan-steps" id="planSteps"></div>
+  </div>
+</section>
+
+<!-- ============ GABARITO COMENTADO ============ -->
+<section class="wrap" id="gabarito">
+  <div class="section-head">
+    <span class="section-num">PARTE 4</span>
+    <h2 class="section-title">Gabarito comentado</h2>
+  </div>
+  <div id="gabaritoList"></div>
+</section>
+
+<footer>
+  <strong>Professora Samanta — Cursos Preparatórios</strong><br>
+  Ciências Humanas · Conteúdo: O Mundo Contemporâneo
+</footer>
+
+<script>
+/* ===================== DADOS ===================== */
+const TOPICS = [
+  {id:"t1", name:"Totalitarismos e 2ª Guerra Mundial", color:"#7A2E2E"},
+  {id:"t2", name:"A Guerra Fria", color:"#3B5166"},
+  {id:"t3", name:"Descolonização da África e Ásia", color:"#5C6B3C"},
+  {id:"t4", name:"América Latina no pós-guerra", color:"#B9884A"},
+  {id:"t5", name:"Globalização e neoliberalismo", color:"#C79A3B"},
+];
+
+const QUESTIONS = [
+  // ---------- TEMA 1 ----------
+  {
+    topic:"t1", diff:"facil",
+    q:"O regime político liderado por Adolf Hitler na Alemanha, caracterizado pelo culto ao líder, nacionalismo extremo e antissemitismo, é conhecido como:",
+    options:["Fascismo","Nazismo","Stalinismo","Franquismo"],
+    correct:1,
+    exp:"O Nazismo foi o regime totalitário liderado por Hitler na Alemanha (1933-1945), baseado na ideologia de superioridade racial ariana, expansionismo territorial e perseguição a judeus e outras minorias."
+  },
+  {
+    topic:"t1", diff:"medio",
+    q:"Além dos judeus, principais vítimas do Holocausto, o regime nazista também perseguiu e exterminou sistematicamente:",
+    options:[
+      "Apenas prisioneiros de guerra soviéticos",
+      "Ciganos (Roma), homossexuais, deficientes físicos e mentais, comunistas e testemunhas de Jeová",
+      "Somente membros de partidos políticos rivais na Alemanha",
+      "Apenas cidadãos de países ocupados militarmente"
+    ],
+    correct:1,
+    exp:"O totalitarismo nazista perseguiu diversos grupos considerados 'indesejáveis' ou 'inferiores' segundo sua ideologia racial e política, incluindo ciganos, homossexuais, pessoas com deficiência, comunistas, sindicalistas e testemunhas de Jeová, além dos judeus."
+  },
+  {
+    topic:"t1", diff:"dificil",
+    q:"A criação da Organização das Nações Unidas (ONU) em 1945 e a posterior Declaração Universal dos Direitos Humanos (1948) devem ser compreendidas, no contexto do pós-guerra, como:",
+    options:[
+      "Iniciativas exclusivamente soviéticas para conter o avanço do capitalismo",
+      "Respostas internacionais às atrocidades da guerra, buscando manter a paz mundial e estabelecer parâmetros mínimos de dignidade humana",
+      "Tratados com validade restrita apenas às potências vencedoras da guerra",
+      "Documentos sem qualquer relação com os horrores do Holocausto e dos totalitarismos"
+    ],
+    correct:1,
+    exp:"Diante da escala de destruição e das atrocidades cometidas pelos regimes totalitários (especialmente o Holocausto), a comunidade internacional criou a ONU para evitar novos conflitos globais e, em 1948, aprovou a Declaração Universal dos Direitos Humanos, fixando direitos e liberdades fundamentais válidos para todas as pessoas."
+  },
+
+  // ---------- TEMA 2 ----------
+  {
+    topic:"t2", diff:"facil",
+    q:"A Guerra Fria (1947-1991) caracterizou-se principalmente por um conflito entre:",
+    options:[
+      "Alemanha e França, por disputas territoriais",
+      "Estados Unidos (capitalismo) e União Soviética (socialismo), sem confronto militar direto entre as duas potências",
+      "Reino Unido e Japão, por colônias na Ásia",
+      "China e Índia, por fronteiras no Himalaia"
+    ],
+    correct:1,
+    exp:"A Guerra Fria foi um conflito ideológico, político, econômico e militar (indireto, por meio de guerras periféricas) entre EUA e URSS, que dividiram o mundo em blocos capitalista e socialista, sem confronto direto entre as duas superpotências."
+  },
+  {
+    topic:"t2", diff:"medio",
+    q:"A Revolução Cubana (1959), liderada por Fidel Castro e Che Guevara, teve como principal repercussão na América Latina e nos Estados Unidos:",
+    options:[
+      "O fortalecimento imediato das relações comerciais entre Cuba e os EUA",
+      "A aproximação de Cuba com a URSS, o embargo econômico dos EUA e a inspiração de movimentos revolucionários em outros países latino-americanos",
+      "A anexação de Cuba ao território estadunidense",
+      "O fim total da influência soviética na América Latina"
+    ],
+    correct:1,
+    exp:"Após a Revolução, Cuba se aproximou da URSS e adotou o socialismo, o que levou os EUA a imporem um embargo econômico ao país. A revolução também inspirou movimentos de esquerda e guerrilhas em diversos países latino-americanos durante a Guerra Fria."
+  },
+  {
+    topic:"t2", diff:"dificil",
+    q:"As tensões sino-soviéticas que se intensificaram a partir da década de 1960 evidenciam que:",
+    options:[
+      "O chamado 'bloco socialista' era absolutamente unificado e sem divergências internas",
+      "China e URSS mantinham uma aliança militar formal e permanente contra os EUA",
+      "Divergências ideológicas, de liderança do movimento comunista internacional e disputas de fronteira fragilizaram a suposta unidade do bloco socialista",
+      "A Revolução Chinesa de 1949 foi um movimento diretamente controlado por Moscou"
+    ],
+    correct:2,
+    exp:"Apesar de ambos adotarem o socialismo, China e URSS divergiam sobre a interpretação do marxismo, a liderança do movimento comunista mundial e disputas territoriais, o que gerou um rompimento gradual e mostra que o 'bloco socialista' não era monolítico."
+  },
+
+  // ---------- TEMA 3 ----------
+  {
+    topic:"t3", diff:"facil",
+    q:"O processo pelo qual diversos países da África e da Ásia conquistaram sua independência das potências europeias, principalmente entre as décadas de 1940 e 1970, é chamado de:",
+    options:["Colonialismo","Descolonização","Neocolonialismo","Imperialismo"],
+    correct:1,
+    exp:"Descolonização é o processo histórico de conquista da independência política de territórios colonizados, impulsionado pelo enfraquecimento das potências europeias após a Segunda Guerra Mundial e pelo fortalecimento dos movimentos nacionalistas locais."
+  },
+  {
+    topic:"t3", diff:"medio",
+    q:"Um dos principais desafios enfrentados por diversos países africanos após a independência foi:",
+    options:[
+      "A ausência total de conflitos internos devido à unidade étnica dos novos países",
+      "A instabilidade política e os conflitos étnicos, agravados por fronteiras artificiais herdadas do período colonial",
+      "O imediato desenvolvimento econômico e industrial equivalente ao das antigas metrópoles",
+      "A completa independência econômica em relação às antigas potências coloniais"
+    ],
+    correct:1,
+    exp:"As fronteiras dos novos países africanos foram, em grande parte, definidas artificialmente pelas potências coloniais europeias, sem considerar etnias, línguas e culturas locais, o que gerou conflitos internos e instabilidade política em muitos casos após a independência."
+  },
+  {
+    topic:"t3", diff:"dificil",
+    q:"A criação do Estado de Israel em 1947-48 e seus desdobramentos na questão da Palestina devem ser entendidos como um processo que:",
+    options:[
+      "Ocorreu de forma consensual entre todas as populações da região, sem gerar conflitos posteriores",
+      "Envolveu o deslocamento da população palestina e deu origem a sucessivos conflitos árabe-israelenses que persistem até os dias atuais",
+      "Foi resolvido definitivamente pela ONU logo após sua criação, sem deixar tensões territoriais",
+      "Não teve qualquer relação com o fim dos mandatos coloniais no Oriente Médio"
+    ],
+    correct:1,
+    exp:"A criação do Estado de Israel, no contexto do fim do mandato britânico na Palestina, gerou o deslocamento de grande parte da população palestina e uma série de guerras árabe-israelenses, dando origem a uma disputa territorial e política que permanece sem solução definitiva até hoje."
+  },
+
+  // ---------- TEMA 4 ----------
+  {
+    topic:"t4", diff:"facil",
+    q:"No contexto da Guerra Fria, diversos países da América Latina (como Brasil, Chile e Argentina) foram governados por:",
+    options:[
+      "Monarquias constitucionais",
+      "Ditaduras civis e militares, muitas delas justificadas pelo combate ao 'avanço comunista'",
+      "Governos socialistas alinhados exclusivamente à URSS",
+      "Repúblicas parlamentaristas estáveis"
+    ],
+    correct:1,
+    exp:"No contexto da polarização da Guerra Fria, vários países latino-americanos sofreram golpes de Estado e foram governados por ditaduras civis-militares (como no Brasil a partir de 1964), que se justificavam, entre outros fatores, pela contenção do avanço do comunismo na região."
+  },
+  {
+    topic:"t4", diff:"medio",
+    q:"As ditaduras civis-militares latino-americanas do período da Guerra Fria caracterizaram-se, entre outros aspectos, por:",
+    options:[
+      "Ampliação das liberdades civis e da participação política popular",
+      "Repressão política, censura, perseguição a opositores, tortura e desaparecimentos forçados",
+      "Total ausência de apoio ou alinhamento com os Estados Unidos",
+      "Fortalecimento imediato e irrestrito dos sindicatos e movimentos sociais"
+    ],
+    correct:1,
+    exp:"As ditaduras civis-militares da América Latina, no contexto da Doutrina de Segurança Nacional, caracterizaram-se pela forte repressão política: censura à imprensa, perseguição e tortura de opositores, e desaparecimentos forçados de militantes e ativistas."
+  },
+  {
+    topic:"t4", diff:"dificil",
+    q:"Sobre as lutas por justiça social e os movimentos de resistência às ditaduras latino-americanas, é correto afirmar que:",
+    options:[
+      "Restringiram-se exclusivamente a ações de guerrilha armada, sem qualquer outra forma de resistência",
+      "Envolveram diferentes atores — guerrilhas urbanas e rurais, sindicatos, setores da Igreja Católica (Teologia da Libertação) e organizações de direitos humanos — e foram fundamentais no processo de redemocratização a partir dos anos 1980",
+      "Não tiveram qualquer relação com o processo posterior de redemocratização da região",
+      "Foram integralmente apoiadas e financiadas pelos governos militares no poder"
+    ],
+    correct:1,
+    exp:"A resistência às ditaduras latino-americanas envolveu múltiplas frentes: guerrilhas, sindicatos, setores progressistas da Igreja (como a Teologia da Libertação) e organizações de direitos humanos, que denunciaram violações e pressionaram pela abertura política, contribuindo para a redemocratização gradual a partir dos anos 1980."
+  },
+
+  // ---------- TEMA 5 ----------
+  {
+    topic:"t5", diff:"facil",
+    q:"A queda do Muro de Berlim, em 1989, é um marco histórico associado a:",
+    options:[
+      "O início da Guerra Fria",
+      "A crise do socialismo real e o processo que levaria ao fim da Guerra Fria",
+      "O início da Segunda Guerra Mundial",
+      "A independência dos países africanos"
+    ],
+    correct:1,
+    exp:"A queda do Muro de Berlim simbolizou a crise do socialismo no Leste Europeu e antecedeu o fim da União Soviética (1991), marcando o encerramento da Guerra Fria e da divisão do mundo em blocos ideológicos."
+  },
+  {
+    topic:"t5", diff:"medio",
+    q:"O neoliberalismo, implementado com força em diversos países da América Latina a partir dos anos 1990, teve como principais características:",
+    options:[
+      "Ampliação da intervenção estatal na economia e estatização de empresas privadas",
+      "Privatizações de estatais, abertura comercial, desregulamentação econômica e redução do papel do Estado",
+      "Fechamento das economias nacionais ao comércio internacional",
+      "Fortalecimento exclusivo do socialismo como modelo econômico"
+    ],
+    correct:1,
+    exp:"O neoliberalismo defende a redução da intervenção estatal na economia, privatização de empresas públicas, abertura comercial e desregulamentação de mercados — políticas amplamente adotadas na América Latina nos anos 1990, muitas vezes seguindo as diretrizes do chamado Consenso de Washington."
+  },
+  {
+    topic:"t5", diff:"dificil",
+    q:"A ascensão da China como potência econômica global, a partir das reformas iniciadas por Deng Xiaoping, caracteriza-se por uma combinação particular entre:",
+    options:[
+      "Democracia multipartidária plena e economia totalmente estatizada",
+      "Abertura econômica controlada, com elementos de mercado, mantendo o regime político de partido único do Partido Comunista Chinês",
+      "Isolamento comercial total em relação ao restante do mundo",
+      "Adoção integral do modelo neoliberal ocidental, incluindo pluripartidarismo"
+    ],
+    correct:1,
+    exp:"A China combinou reformas econômicas que abriram o país ao mercado e ao comércio internacional (a partir de Deng Xiaoping, fim dos anos 1970) com a manutenção do controle político centralizado do Partido Comunista Chinês, um modelo híbrido que permitiu seu crescimento acelerado sem democratização política plena."
+  },
+];
+
+const DIFF_LABEL = {facil:"Fácil", medio:"Médio", dificil:"Difícil"};
+
+/* ===================== RENDER PERGUNTAS ===================== */
+const form = document.getElementById('quizForm');
+const answers = new Array(QUESTIONS.length).fill(null);
+
+TOPICS.forEach((topic, tIdx) => {
+  const block = document.createElement('div');
+  block.className = 'topic-block';
+
+  const title = document.createElement('div');
+  title.className = 'topic-title';
+  title.innerHTML = `<span class="dot" style="background:${topic.color}"></span> 1.${tIdx+1} ${topic.name}`;
+  block.appendChild(title);
+
+  const prog = document.createElement('div');
+  prog.className = 'topic-progress';
+  prog.textContent = 'FÁCIL → MÉDIO → DIFÍCIL';
+  block.appendChild(prog);
+
+  QUESTIONS.forEach((question, qIdx) => {
+    if(question.topic !== topic.id) return;
+    const card = document.createElement('div');
+    card.className = 'qcard';
+
+    const head = document.createElement('div');
+    head.className = 'qhead';
+    head.innerHTML = `<span class="diff-badge ${question.diff}">${DIFF_LABEL[question.diff]}</span><span class="qnum">Questão ${qIdx+1}</span>`;
+    card.appendChild(head);
+
+    const qtext = document.createElement('p');
+    qtext.className = 'qtext';
+    qtext.textContent = question.q;
+    card.appendChild(qtext);
+
+    const optWrap = document.createElement('div');
+    optWrap.className = 'options';
+    const letters = ['A','B','C','D'];
+    question.options.forEach((opt, oIdx) => {
+      const label = document.createElement('label');
+      label.className = 'opt';
+      label.innerHTML = `<input type="radio" name="q${qIdx}" value="${oIdx}"><span><span class="letter">${letters[oIdx]})</span> ${opt}</span>`;
+      const input = label.querySelector('input');
+      input.addEventListener('change', () => {
+        answers[qIdx] = oIdx;
+        optWrap.querySelectorAll('.opt').forEach(o => o.classList.remove('selected'));
+        label.classList.add('selected');
+        updateProgress();
+      });
+      optWrap.appendChild(label);
+    });
+    card.appendChild(optWrap);
+    block.appendChild(card);
+  });
+
+  form.appendChild(block);
+});
+
+const submitBtn = document.getElementById('submitBtn');
+const progressNote = document.getElementById('progressNote');
+
+function updateProgress(){
+  const answered = answers.filter(a => a !== null).length;
+  progressNote.textContent = `${answered} de ${QUESTIONS.length} respondidas`;
+  submitBtn.disabled = answered !== QUESTIONS.length;
+}
+
+/* ===================== CORREÇÃO ===================== */
+submitBtn.addEventListener('click', () => {
+  const perTopic = {};
+  TOPICS.forEach(t => perTopic[t.id] = {correct:0, total:0, name:t.name, color:t.color});
+
+  let totalCorrect = 0;
+  const results = QUESTIONS.map((q, i) => {
+    const isCorrect = answers[i] === q.correct;
+    perTopic[q.topic].total++;
+    if(isCorrect){ perTopic[q.topic].correct++; totalCorrect++; }
+    return {...q, idx:i, given:answers[i], isCorrect};
+  });
+
+  renderResults(totalCorrect, perTopic);
+  renderGabarito(results);
+
+  document.getElementById('results').style.display = 'block';
+  document.getElementById('gabarito').style.display = 'block';
+  document.getElementById('results').scrollIntoView({behavior:'smooth'});
+});
+
+function renderResults(totalCorrect, perTopic){
+  const total = QUESTIONS.length;
+  const pct = Math.round((totalCorrect/total)*100);
+
+  const size = 160, radius = 62, circumference = 2*Math.PI*radius;
+  const correctLen = circumference * (totalCorrect/total);
+  const pieWrap = document.getElementById('pieWrap');
+  pieWrap.innerHTML = `
+    <svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
+      <circle cx="${size/2}" cy="${size/2}" r="${radius}" fill="none" stroke="#7A2E2E" stroke-width="22"/>
+      <circle cx="${size/2}" cy="${size/2}" r="${radius}" fill="none" stroke="#5C6B3C" stroke-width="22"
+        stroke-dasharray="${correctLen} ${circumference-correctLen}" stroke-dashoffset="${circumference/4}"
+        stroke-linecap="butt" transform="rotate(0 ${size/2} ${size/2})"/>
+    </svg>
+    <div class="pie-center"><span class="pct">${pct}%</span><span class="lbl">acertos</span></div>
+  `;
+
+  document.getElementById('resultsHeadline').textContent = `Você acertou ${totalCorrect} de ${total} questões`;
+  let feedback;
+  if(pct >= 80) feedback = "Excelente domínio do conteúdo de O Mundo Contemporâneo! Revise apenas pontos pontuais.";
+  else if(pct >= 60) feedback = "Bom desempenho geral — alguns temas merecem reforço, veja abaixo.";
+  else if(pct >= 40) feedback = "Desempenho intermediário. Um estudo orientado nos temas mais fracos vai fazer diferença.";
+  else feedback = "É hora de retomar a base teórica dos temas com mais erros antes de seguir em frente.";
+  document.getElementById('resultsSub').textContent = feedback;
+
+  const topicResultsEl = document.getElementById('topicResults');
+  topicResultsEl.innerHTML = '';
+  const topicArr = Object.values(perTopic);
+  topicArr.forEach(t => {
+    const tpct = Math.round((t.correct/t.total)*100);
+    t.pct = tpct;
+    const row = document.createElement('div');
+    row.className = 'tr-row';
+    row.innerHTML = `
+      <div class="tname">${t.name}</div>
+      <div class="tr-bar-bg"><div class="tr-bar-fill" style="width:${tpct}%; background:${t.color}"></div></div>
+      <div class="tpct" style="color:${t.color}">${t.correct}/${t.total}</div>
+    `;
+    topicResultsEl.appendChild(row);
+  });
+
+  const strongest = topicArr.reduce((a,b) => b.pct > a.pct ? b : a, topicArr[0]);
+  const weakest = topicArr.reduce((a,b) => b.pct < a.pct ? b : a, topicArr[0]);
+
+  document.getElementById('strongTopic').innerHTML = `Você teve melhor desempenho em <strong>${strongest.name}</strong>, acertando ${strongest.correct} de ${strongest.total} questões (${strongest.pct}%). A base teórica desse tema está consolidada.`;
+  document.getElementById('weakTopic').innerHTML = `O tema com mais dificuldade foi <strong>${weakest.name}</strong>, com ${weakest.correct} de ${weakest.total} acertos (${weakest.pct}%). Recomenda-se revisão focada nesse conteúdo.`;
+
+  const sorted = [...topicArr].sort((a,b) => a.pct - b.pct);
+  const planStepsEl = document.getElementById('planSteps');
+  planStepsEl.innerHTML = '';
+  const tips = {
+    "Totalitarismos e 2ª Guerra Mundial": "Monte uma linha do tempo com as principais etapas da guerra (1939-1945) e um esquema comparando fascismo e nazismo, destacando o Holocausto e a criação da ONU.",
+    "A Guerra Fria": "Organize um quadro comparando EUA x URSS (ideologia, aliados, eventos-chave) e revise a cronologia da Revolução Chinesa e da Revolução Cubana.",
+    "Descolonização da África e Ásia": "Estude um mapa com os principais países que se tornaram independentes entre 1947 e 1970, associando cada um a seu contexto de luta nacionalista.",
+    "América Latina no pós-guerra": "Faça uma tabela com os países que sofreram ditaduras civis-militares, os respectivos anos de golpe e as principais formas de resistência em cada caso.",
+    "Globalização e neoliberalismo": "Relacione em um esquema causal: crise do socialismo real → fim da Guerra Fria → avanço do neoliberalismo → impactos na América Latina e ascensão da China.",
+  };
+  sorted.forEach((t, i) => {
+    const step = document.createElement('div');
+    step.className = 'plan-step';
+    const priority = i === 0 ? "Prioridade máxima" : i === 1 ? "Prioridade alta" : i === sorted.length-1 ? "Manutenção" : "Reforço";
+    step.innerHTML = `<div class="pn">${i+1}</div><div class="ptext"><b>${t.name} — ${t.pct}% (${priority})</b>${tips[t.name]}</div>`;
+    planStepsEl.appendChild(step);
+  });
+}
+
+function renderGabarito(results){
+  const el = document.getElementById('gabaritoList');
+  el.innerHTML = '';
+  const letters = ['A','B','C','D'];
+  results.forEach(r => {
+    const topicName = TOPICS.find(t => t.id === r.topic).name;
+    const card = document.createElement('div');
+    card.className = `gcard ${r.isCorrect ? 'correct' : 'incorrect'}`;
+    const yourAnswerText = r.given !== null ? `${letters[r.given]}) ${r.options[r.given]}` : 'Não respondida';
+    card.innerHTML = `
+      <div class="ghead">
+        <span class="result-icon ${r.isCorrect ? 'ok' : 'no'}">${r.isCorrect ? '✓ CORRETA' : '✗ INCORRETA'}</span>
+        <span class="diff-badge ${r.diff}">${DIFF_LABEL[r.diff]}</span>
+        <span class="qnum">Questão ${r.idx+1} · ${topicName}</span>
+      </div>
+      <p class="gq">${r.q}</p>
+      <div class="ganswer">Resposta correta: <b>${letters[r.correct]}) ${r.options[r.correct]}</b></div>
+      <div class="ganswer gyour">Sua resposta: <b>${yourAnswerText}</b></div>
+      <div class="gexp"><b>Comentário:</b> ${r.exp}</div>
+    `;
+    el.appendChild(card);
+  });
+}
+
+updateProgress();
+</script>
+</body>
+</html>
